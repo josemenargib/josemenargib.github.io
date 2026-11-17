@@ -1,0 +1,77 @@
+/* Colores en variables: un solo lugar para cambiar la paleta (y el modo oscuro). */
+:root {
+  --fondo: #f7f8fa;
+  --superficie: #ffffff;
+  --texto: #1a1d23;
+  --suave: #5a6270;
+  --borde: #e2e5ea;
+  --acento: #4f46e5;
+  --acento-texto: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #0f1115;
+    --superficie: #171a21;
+    --texto: #e8eaee;
+    --suave: #9aa3b2;
+    --borde: #2a2f3a;
+    --acento: #818cf8;
+    --acento-texto: #0f1115;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+.contenedor { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+header { border-bottom: 1px solid var(--borde); }
+header .contenedor { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.marca { font-weight: 800; font-size: 1.25rem; letter-spacing: 0.02em; color: var(--texto); text-decoration: none; }
+.marca span { color: var(--acento); }
+nav a { color: var(--suave); text-decoration: none; margin-left: 20px; }
+nav a:hover { color: var(--texto); }
+
+.portada { padding: 72px 0 48px; }
+.portada h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.2; margin: 0 0 16px; }
+.portada p { font-size: 1.15rem; color: var(--suave); max-width: 640px; margin: 0 0 28px; }
+
+.boton {
+  display: inline-block;
+  background: var(--acento);
+  color: var(--acento-texto);
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+section { padding: 40px 0; }
+section h2 { font-size: 1.5rem; margin: 0 0 20px; }
+
+.tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.tarjeta { background: var(--superficie); border: 1px solid var(--borde); border-radius: 12px; padding: 20px; }
+.tarjeta h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.tarjeta p { margin: 0; color: var(--suave); }
+
+.texto-largo { max-width: 720px; }
+.texto-largo h2 { margin-top: 36px; font-size: 1.25rem; }
+.texto-largo li { margin-bottom: 6px; }
+
+footer { border-top: 1px solid var(--borde); padding: 28px 0; color: var(--suave); font-size: 0.95rem; }
+footer a { color: var(--suave); }
+
+a { color: var(--acento); }
+
+@media (max-width: 520px) {
+  nav a { margin-left: 12px; }
+  .portada { padding: 48px 0 32px; }
+}
